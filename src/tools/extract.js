@@ -10,6 +10,8 @@ export async function extractValues(env, userInput = '') {
 				"Map 'college football' to 'ncaaf'." +
 				"Map 'basketball' to 'nba'." +
 				"For when, only return 'today' or 'yesterday'." +
+				"If a college team is mentioned, the name to return must be the school name (e.g. 'alabama', 'usc', 'texas', 'iowa', 'tcu', 'baylor')." +
+				"If a professional team is mentioned (e.g. nfl | nba), the name to return must be their respective location and franchise name (e.g. 'phoenix suns', 'houston rockets', 'utah jazz')" +
 				'If unsure, pick the most likely team from context and still return valid JSON.',
 		},
 		{
