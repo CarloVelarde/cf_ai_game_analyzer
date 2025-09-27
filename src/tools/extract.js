@@ -6,7 +6,7 @@ export async function extractValues(env, userInput = '') {
 			role: 'system',
 			content:
 				'Extract sport query entities as strict JSON.' +
-				'Only allow sports belong to {nba, nfl, ncaaf}.' +
+				'Only allow sports that belong to {nba, nfl, ncaaf}.' +
 				"Map 'college football' to 'ncaaf'." +
 				"Map 'basketball' to 'nba'." +
 				"For when, only return 'today' or 'yesterday'." +

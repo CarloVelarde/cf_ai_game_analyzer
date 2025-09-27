@@ -6,12 +6,17 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "sports-worker-js",
 	"main": "src/index.js",
-	"compatibility_date": "2025-09-25",
+	"compatibility_date": "2025-09-27",
 	"observability": {
 		"enabled": true
 	},
 	"ai": {
 		"binding": "AI"
+	},
+	"vars": { "ENABLE_DEV_ENDPOINTS": "0" },
+	"env": {
+		"dev": { "vars": { "ENABLE_DEV_ENDPOINTS": "1" } },
+		"production": { "vars": { "ENABLE_DEV_ENDPOINTS": "0" } }
 	}
 
 	/**

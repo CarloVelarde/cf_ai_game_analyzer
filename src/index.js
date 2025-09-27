@@ -5,8 +5,13 @@ import { answerUser } from './tools/answer.js';
 export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
+		const DEV = env.ENABLE_DEV_ENDPOINTS === '1';
 
+		// !DEV/DEBUG ENDPOINT ONLY: Not user facing
 		if (request.method === 'POST' && url.pathname === '/api/extract') {
+			if (!DEV) {
+				return new Response('Not found', { status: 404 });
+			}
 			let body;
 			try {
 				body = await request.json();
@@ -23,7 +28,11 @@ export default {
 			return Response.json(messageValues, { headers: { 'Access-Control-Allow-Origin': '*' } });
 		}
 
+		// !DEV/DEBUG ENDPOINT ONLY: Not user facing
 		if (request.method === 'POST' && url.pathname === '/api/stats') {
+			if (!DEV) {
+				return new Response('Not found', { status: 404 });
+			}
 			let body;
 			try {
 				body = await request.json();
@@ -39,6 +48,7 @@ export default {
 			return Response.json(stats, { headers: { 'Access-Control-Allow-Origin': '*' } });
 		}
 
+		// User facing
 		if (request.method === 'POST' && url.pathname === '/api/answer') {
 			let body;
 			try {
