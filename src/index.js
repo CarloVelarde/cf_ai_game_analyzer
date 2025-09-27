@@ -1,5 +1,6 @@
 import { extractValues } from './tools/extract.js';
 import { getTeamGameStats } from './tools/stats.js';
+import { answerUser } from './tools/answer.js';
 
 export default {
 	async fetch(request, env, ctx) {
@@ -36,6 +37,24 @@ export default {
 			}
 			let stats = await getTeamGameStats(env, { sport, teamName, when });
 			return Response.json(stats, { headers: { 'Access-Control-Allow-Origin': '*' } });
+		}
+
+		if (request.method === 'POST' && url.pathname === '/api/answer') {
+			let body;
+			try {
+				body = await request.json();
+			} catch (err) {
+				return new Response('Invalid JSON body', { status: 400 });
+			}
+
+			// Make sure message is a non-empty string
+			const message = typeof body?.message === 'string' ? body.message.trim() : '';
+			if (!message) {
+				return Response.json({ error: "Missing 'message'." }, { status: 400 });
+			}
+
+			const result = await answerUser(env, message);
+			return Response.json(result, { headers: { 'Access-Control-Allow-Origin': '*' } });
 		}
 		return new Response('ok');
 	},
