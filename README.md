@@ -11,7 +11,7 @@ The flow of the worker is as follows:
 - returns a short summary plus raw scores/stats
 
 Visit demo: https://cf-ai-game-analyzer.pages.dev  
-Backend (Worker): `POST /api/answer`
+Access Backend (Worker): `POST /api/answer`
 
 ---
 
