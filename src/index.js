@@ -2,7 +2,7 @@ import { extractValues } from './tools/extract.js';
 import { getTeamGameStats } from './tools/stats.js';
 import { answerUser } from './tools/answer.js';
 
-const CORS_ORIGIN = 'http://localhost:5173'; // Change for when I move to prod
+const CORS_ORIGIN = env.FRONTEND_ORIGIN || '*';
 const CORS_HEADERS = {
 	'Access-Control-Allow-Origin': CORS_ORIGIN,
 	'Access-Control-Allow-Methods': 'POST, OPTIONS',

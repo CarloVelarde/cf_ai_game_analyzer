@@ -13,15 +13,15 @@
 	"ai": {
 		"binding": "AI"
 	},
-	"vars": { "ENABLE_DEV_ENDPOINTS": "0" },
+	"vars": { "ENABLE_DEV_ENDPOINTS": "0", "FRONTEND_ORIGIN": "https://cf-ai-game-analyzer.pages.dev" },
 	"env": {
 		"dev": {
 			"ai": { "binding": "AI" },
-			"vars": { "ENABLE_DEV_ENDPOINTS": "1" }
+			"vars": { "ENABLE_DEV_ENDPOINTS": "1", "FRONTEND_ORIGIN": "http://localhost:5173" }
 		},
 		"production": {
 			"ai": { "binding": "AI" },
-			"vars": { "ENABLE_DEV_ENDPOINTS": "0" }
+			"vars": { "ENABLE_DEV_ENDPOINTS": "0", "FRONTEND_ORIGIN": "https://cf-ai-game-analyzer.pages.dev" }
 		}
 	}
 
