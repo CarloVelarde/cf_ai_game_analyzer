@@ -2,19 +2,19 @@ import { extractValues } from './tools/extract.js';
 import { getTeamGameStats } from './tools/stats.js';
 import { answerUser } from './tools/answer.js';
 
-const CORS_ORIGIN = env.FRONTEND_ORIGIN || '*';
-const CORS_HEADERS = {
-	'Access-Control-Allow-Origin': CORS_ORIGIN,
-	'Access-Control-Allow-Methods': 'POST, OPTIONS',
-	'Access-Control-Allow-Headers': 'Content-Type',
-	'Access-Control-Max-Age': '86400',
-	Vary: 'Origin',
-};
-
 export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
 		const DEV = env.ENABLE_DEV_ENDPOINTS === '1';
+
+		const CORS_ORIGIN = env.FRONTEND_ORIGIN || '*';
+		const CORS_HEADERS = {
+			'Access-Control-Allow-Origin': CORS_ORIGIN,
+			'Access-Control-Allow-Methods': 'POST, OPTIONS',
+			'Access-Control-Allow-Headers': 'Content-Type',
+			'Access-Control-Max-Age': '86400',
+			Vary: 'Origin',
+		};
 
 		if (request.method === 'OPTIONS') {
 			return new Response(null, { headers: CORS_HEADERS });
