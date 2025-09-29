@@ -121,3 +121,19 @@ Questions to ask:
   - If no day is given, the worker will default to games under 'today'
 - The worker currently only supports teams under NCAAF, NFL, and NBA
 - If the live demo at `https://cf-ai-game-analyzer.pages.dev` or your local environment is not working as expected, that could be due to reaching the daily api call limit for **api-sports-io**
+
+## Future Development
+
+- Add ability for follow up questions
+  > User: How did the Jaguars do last night?
+  >
+  > Bot: Jaguars won at home 22-17. Their passing game was strong with 275 yards.
+  >
+  > User: How many rushing yards did the Jaguars have?
+  >
+  > Bot: The Jaguars had 112 rushing yards.
+
+* Improved error handling
+  - Catch faulty input early
+  - Potentially involve the user in deciding if input is correct?
+* Add sports + leagues. Currently only supports basketball (nba) and american football (nfl, ncaaf)
