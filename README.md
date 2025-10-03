@@ -13,6 +13,7 @@ The flow of the worker is as follows:
 Visit demo: https://cf-ai-game-analyzer.pages.dev  
 Access Backend (Worker): `POST /api/answer`
 
+> NOTE: If the game happened late, the underlying API may view last nights game as todays game.
 ---
 
 ## Quick Start (Local)
